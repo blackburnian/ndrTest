@@ -32,9 +32,10 @@ export default class ndrTest extends Component {
         const pdfUrl = 'https://www.ets.org/Media/Tests/TOEFL/pdf/SampleQuestions.pdf';
         const videoUrl = 'https://archive.org/download/Pbtestfilemp4videotestmp4/video_test_512kb.mp4';
 
-        RNFetchBlob.config({
-            path: dirs.DocumentDir + '/test.pdf'
-        })
+        RNFetchBlob
+            .config({
+                path: dirs.DocumentDir + '/test.pdf'
+            })
             .fetch('GET', pdfUrl)
             .then((res) => {
                 // open the document directly
