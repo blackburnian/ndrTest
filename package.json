@@ -9,7 +9,6 @@
   "dependencies": {
     "react": "15.4.1",
     "react-native": "0.38.0",
-    "react-native-fs": "^2.0.1-rc.2",
     "react-native-pdf-view": "^0.3.2"
   },
   "jest": {
