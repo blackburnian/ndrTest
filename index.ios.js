@@ -10,15 +10,12 @@ import {
     StyleSheet,
     Text,
     View,
-    WebView
+    TouchableHighlight
 } from 'react-native';
 
 import RNFetchBlob from 'react-native-fetch-blob';
 
 let dirs = RNFetchBlob.fs.dirs;
-
-import PDFView from 'react-native-pdf-view';
-import QuickLook from 'react-native-quick-look';
 
 export default class ndrTest extends Component {
 
@@ -26,11 +23,12 @@ export default class ndrTest extends Component {
         url: null
     };
 
-    componentDidMount() {
-
+    onClick() {
         // test URLs
         const pdfUrl = 'https://www.ets.org/Media/Tests/TOEFL/pdf/SampleQuestions.pdf';
         const videoUrl = 'https://archive.org/download/Pbtestfilemp4videotestmp4/video_test_512kb.mp4';
+
+        console.log('clicked');
 
         RNFetchBlob
             .config({
@@ -40,6 +38,7 @@ export default class ndrTest extends Component {
             .then((res) => {
                 // open the document directly
                 // RNFetchBlob.ios.previewDocument(res.path())
+
                 // or show options
                 RNFetchBlob.ios.openDocument(res.path());
 
@@ -57,8 +56,10 @@ export default class ndrTest extends Component {
     render() {
 
         return (
-            <View style={{ flex: 1 }}>
-
+            <View style={{ flex: 1, marginTop: 50, alignItems: 'center' }}>
+                <TouchableHighlight onPress={this.onClick.bind(this)}>
+                    <Text>Open PDF</Text>
+                </TouchableHighlight>
             </View>
         );
     }
